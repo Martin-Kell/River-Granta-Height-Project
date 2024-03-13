@@ -107,3 +107,75 @@ WHERE Date <= '2002-01-01'
 SELECT *
 FROM Maxleveldaily
 WHERE Date >= '2002-01-01' AND DATE <= '2018-01-01'
+
+-- Selecting Data for count of specific river height per year in m for 2018.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2018' AND Date < '2019' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
+
+-- Selecting Data for count of specific river height per year in m for 2019.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2019' AND Date < '2020' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
+
+-- Selecting Data for count of specific river height per year in m for 2020.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2020' AND Date < '2021' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
+
+-- Selecting Data for count of specific river height per year in m for 2021.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2021' AND Date < '2022' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
+
+-- Selecting Data for count of specific river height per year in m for 2022.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2022' AND Date < '2023' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
+
+-- Selecting Data for count of specific river height per year in m for 2023.
+
+WITH CTE_COUNTValue as 
+(SELECT DATEPART(YEAR, Date) as Year, Location, Value
+FROM Maxleveldaily
+WHERE Date >= '2023' AND Location = 'Linton'
+)
+SELECT Year, COUNT(CAST(Value as decimal(18,3))) as Similar_Value_Count, Location, CAST(Value as decimal(18,3)) as Value
+FROM CTE_COUNTValue
+GROUP BY Location, Year, Value
+ORDER BY Value ASC
